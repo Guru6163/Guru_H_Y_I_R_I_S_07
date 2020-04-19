@@ -45,6 +45,20 @@ class DLL:
         else:
             self.tail=nodetoinsert
         node.next=nodetoinsert
+    def insertat(self,position,node):
+        if position==1:
+            self.sethead(node)
+            return
+        cur=self.head
+        curpos=1
+        while cur is not None and curpos!=position:
+            node=node.next
+            curpos+=1
+        if node is not None:
+            self.insertbefore(node)
+        else:
+            self.settail(node)
+            
     def removewithvalues(self,node):
         cur=self.head
         while cur is not None:
